@@ -18,7 +18,7 @@
   <content src="index.html"/>
   
   <!-- Personaliza la aplicacion y plataforma  -->  
-  <preference name="phonegap-version" value="cli-6.1.0" />
+  <preference name="phonegap-version" value="3.7.0" />
   <preference name="DisallowOverscroll" value="true"/>
   
   <preference name="orientation"        value="portrait" />    
