@@ -8,8 +8,9 @@ function conectar_base()
 
 function cargarNivel($min,$max)
  {
+	 alert ($min);
      db.transaction(function(tx) {
-        tx.executeSql("select numeroAtomico from elementos where idelemento >= " + $min + " and idelemento <= " + $max + ";", [], function(tx, res) {
+        tx.executeSql("select numeroAtomico from elementos where idelemento >= 0 and idelemento <= 6;", [], function(tx, res) {
             
 			for ($i = 0; i <=$max; i++)
 			 {
@@ -42,7 +43,7 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
 	
 	$('.boton-nivel').on('click' , function () {
 		$cual_nivel = $(this).attr('id');	
-		alert($cual_nivel);	
+		
 		switch ($cual_nivel)
 	     {
 			//seleccion de los elementos con un arreglo de x a y segun el nivel
