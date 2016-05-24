@@ -10,7 +10,7 @@ function cargarNivel($min,$max)
  {
 	      db.transaction(function(tx) {
         tx.executeSql("select numeroAtomico from elementos where idelemento >= " + $min + " and idelemento <=" + $max +";", [], function(tx, res) {
-			for ($i=0; $i <=$max; $i++)
+			for ($i=0; $i <$max; $i++)
 			 {
 				$arreglo_elementos [$i] =  res.rows.item($i).numeroAtomico;
 			 }
