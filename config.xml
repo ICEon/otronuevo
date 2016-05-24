@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget
+  xmlns="http://www.w3.org/ns/widgets"
+  xmlns:gap="http://phonegap.com/ns/1.0"
+  id="com.cbtis16.qquiz"
+  version="1.0.0">
+  
+  <name> Quimica Quiz </name>  
+  
+  <description>  
+	Aprende los elementos de la tabla periodica
+  </description>  
+  
+  <author href="https://build.phonegap.com" email="micorreo@gmail.com">  
+	ICEon
+  </author>  
+  
+  <content src="index.html"/>
+  
+  <!-- Personaliza la aplicacion y plataforma  -->  
+  <preference name="phonegap-version" value="cli-6.1.0" />
+  <preference name="DisallowOverscroll" value="true"/>
+  
+  <preference name="orientation"        value="portrait" />    
+  <preference name="android-targetSdkVersion" value="12" />
+  <preference name="fullscreen"         value="true" />      
+  <preference name="android-installLocation"  value="auto" />  
+  <preference name="SplashScreen" value="splash"/>
+  <preference name="SplashScreenDelay" value="1000"/>
+  
+  <!-- Plugins -->  
+  <!-- Core plugins -->   
+  <plugin name="cordova-plugin-dialogs" source="npm" spec="~1.2.0"/>  
+  <plugin name="cordova-plugin-splashscreen" source="npm" spec="~3.2.1"/>  
+  <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0"/>
+  
+  <icon src="icon.png"/>
+  <platform name="android">
+	<icon src="www/res/icon/android/drawable-ldpi-icon.png" density="ldpi"/>
+	<icon src="www/res/icon/android/drawable-mdpi-icon.png" density="mdpi"/>
+	<icon src="www/res/icon/android/drawable-hdpi-icon.png" density="hdpi"/>
+	<icon src="www/res/icon/android/drawable-xhdpi-icon.png" density="xhdpi"/>
+	<icon src="www/res/icon/android/drawable-xxhdpi-icon.png" density="xxhdpi"/>
+	<icon src="www/res/icon/android/drawable-xxxhdpi-icon.png" density="xxxhdpi"/>
+	<splash src="www/res/screen/android/drawable-land-ldpi-screen.png" density="land-ldpi"/>
+	<splash src="www/res/screen/android/drawable-land-mdpi-screen.png" density="land-mdpi"/>
+	<splash src="www/res/screen/android/drawable-land-hdpi-screen.png" density="land-hdpi"/>
+	<splash src="www/res/screen/android/drawable-land-xhdpi-screen.png" density="land-xhdpi"/>
+	<splash src="www/res/screen/android/drawable-land-xxhdpi-screen.png" density="land-xxhdpi"/>
+	<splash src="www/res/screen/android/drawable-land-xxxhdpi-screen.png" density="land-xxxhdpi"/>
+	<splash src="www/res/screen/android/drawable-port-ldpi-screen.png" density="port-ldpi"/>
+	<splash src="www/res/screen/android/drawable-port-mdpi-screen.png" density="port-mdpi"/>
+	<splash src="www/res/screen/android/drawable-port-hdpi-screen.png" density="port-hdpi"/>
+	<splash src="www/res/screen/android/drawable-port-xhdpi-screen.png" density="port-xhdpi"/>
+	<splash src="www/res/screen/android/drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
+	<splash src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
+  </platform>
+  
+  <!-- Third party plugins -->  
+  <plugin name="com.brodysoft.sqliteplugin" spec="1.0.6" source="pgb" />
+  <plugin name="com.rjfun.cordova.plugin.lowlatencyaudio" spec="1.1.3" source="pgb" />
+
+</widget>
