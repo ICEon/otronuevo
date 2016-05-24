@@ -8,10 +8,9 @@ function conectar_base()
 
 function cargarNivel($min,$max)
  {
-	 alert ($min);
-     db.transaction(function(tx) {
+	      db.transaction(function(tx) {
         tx.executeSql("select numeroAtomico from elementos where idelemento >= 0 and idelemento <= 6;", [], function(tx, res) {
-            
+            alert (res.rows.item(0).numeroAtomico);
 			for ($i = 0; i <=$max; i++)
 			 {
 				$arreglo_elementos [$i] =  res.rows.item($i).numeroAtomico;
