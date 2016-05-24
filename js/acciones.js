@@ -41,7 +41,8 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
 	
 	
 	$('.boton-nivel').on('click' , function () {
-		$cual_nivel = $(this).attr('id');		
+		$cual_nivel = $(this).attr('id');	
+		alert($cual_nivel);	
 		switch ($cual_nivel)
 	     {
 			//seleccion de los elementos con un arreglo de x a y segun el nivel
