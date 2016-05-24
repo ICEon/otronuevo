@@ -18,7 +18,9 @@ function cargarNivel($min,$max)
 			 elementoEncontrar = Math.floor((Math.random() * $max) + $min);
 			 
 			 $('#dos div').html(elementoEncontrar);
-			
+			 $(':mobile-pagecontainer').pagecontainer('change', '#jugar',{
+                transition: 'pop'
+			   }); 
 			
 			
         });
