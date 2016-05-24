@@ -9,14 +9,15 @@ function conectar_base()
 function cargarNivel($min,$max)
  {
 	      db.transaction(function(tx) {
-        tx.executeSql("select numeroAtomico from elementos where idelemento >= 0 and idelemento <= 6;", [], function(tx, res) {
-            alert (res.rows.item(0).numeroAtomico);
-			for ($i = 0; i <=$max; i++)
+        tx.executeSql("select numeroAtomico from elementos where idelemento >= " + $min + " and idelemento <=" + $max +";", [], function(tx, res) {
+			for ($i=0; $i <=$max; $i++)
 			 {
 				$arreglo_elementos [$i] =  res.rows.item($i).numeroAtomico;
 			 }
 			 
-			 alert ($arreglo_elementos[0]);
+			 elementoEncontrar = Math.floor((Math.random() * $max) + $min);
+			 
+			 $('#dos div').html(elementoEncontrar);
 			
 			
 			
@@ -47,34 +48,34 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
 	     {
 			//seleccion de los elementos con un arreglo de x a y segun el nivel
 		case 'boton-nivel1':
-		 cargarNivel(0,6);
+		 cargarNivel(1,7);
 		break;		
 		case 'boton-nivel2':
-		 cargarNivel(7,11);
+		 cargarNivel(8,12);
 		break;
 		case 'boton-nivel3':
-		cargarNivel(31,35);
+		cargarNivel(32,36);
 		break;
 		case 'boton-nivel4':
-		 cargarNivel(24,30);
+		 cargarNivel(25,31);
 		break;
 		case 'boton-nivel5':
-		 cargarNivel(12,17);
+		 cargarNivel(13,18);
 		break;
 		case 'boton-nivel6':
-		cargarNivel(18,24);
+		cargarNivel(19,24);
 		break;
 		case 'boton-nivel7':
-		cargarNivel(36,42);
+		cargarNivel(37,43);
 		break;
 		case 'boton-nivel8':
-		cargarNivel(84,97);
+		cargarNivel(85,98);
 		break;
 		case 'boton-nivel9':
-		cargarNivel(98,111);
+		cargarNivel(99,112);
 		break;
 		case 'boton-nivel10':
-		cargarNivel(43,83);
+		cargarNivel(44,84);
 		break;
 		 }
 	});
