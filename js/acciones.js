@@ -9,18 +9,19 @@ function conectar_base()
 function cargarNivel($min,$max)
  {
 	      db.transaction(function(tx) {
-        tx.executeSql("select numeroAtomico from elementos where idelemento >= " + $min + " and idelemento <=" + $max +";", [], function(tx, res) {
+        tx.executeSql("SELECT numeroAtomico FROM elementos WHERE idelemento BETWEEN " + $min + " AND " + $max +";", [], function(tx, res) {
 			for ($i=0; $i <$max; $i++)
 			 {
 				$arreglo_elementos [$i] =  res.rows.item($i).numeroAtomico;
 			 }
 			 
-			 elementoEncontrar = Math.floor((Math.random() * $max) + $min);
+			 $elementoEncontrar = Math.floor((Math.random() * $max) + $min);
+			 alert ($elementoencontrar);
 			 
-			 $('#dos div').html(elementoEncontrar);
+			 $('#dos div').html($elementoEncontrar);
 			 $(':mobile-pagecontainer').pagecontainer('change', '#jugar',{
                 transition: 'pop'
-			   }); 
+			   }, alert ("error en la consulta");); 
 			
 			
         });
