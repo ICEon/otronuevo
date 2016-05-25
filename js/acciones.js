@@ -56,13 +56,13 @@ function colocar_adivinar ($min, $max){
 	    {
 		 $segundo = Math.round(Math.random()*($max-$min));
 	     $adivinar[1] = $arreglo_elementos[$segundo]; 
-		} while ($seguno == $actual);
+		} while ($segundo == $actual);
 	
 	   do 
 	    {
 		 $tercero = Math.round(Math.random()*($max-$min));
 	     $adivinar[2] = $arreglo_elementos[$tercero]; 
-		} while (($tercero == $seguno) || ($tercero == $actual));
+		} while (($tercero == $segundo) || ($tercero == $actual));
 		
 		alert ($adivinar [0] + " " + $adivinar [1] + " " + $adivinar [2]);
 	
