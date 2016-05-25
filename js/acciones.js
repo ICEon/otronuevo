@@ -15,7 +15,7 @@ function cargarNivel($min,$max)
 				$arreglo_elementos [$i] =  res.rows.item($i).numeroAtomico;
 			 }
 			 
-			 $elementoEncontrar = Math.floor((Math.random() * $max) + $min);
+			 $elementoEncontrar =  Math.round(Math.random()*($max-$min)+parseInt($min));
 			 
 			 $('#dos div').html($elementoEncontrar);
 			 
