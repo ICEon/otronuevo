@@ -147,7 +147,7 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
 		$mostrarCual = $(this).html();
 		$color = $(this).css('background-color');
 		
-			alert ($color);
+			$('#header-emostrar').css('background-color', $color);
 			
   		  
 		  
