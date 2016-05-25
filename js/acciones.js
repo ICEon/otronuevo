@@ -307,7 +307,8 @@ $caja.addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd 
 		  
 		  function animarCaida($alto){
 			 $alto = $alto - ($alto*.1);
-			  $velocidad = $velocidad-(($velocidad * ($alto/603)) - $velocidad);
+			  $velocidad_actual = "";
+			  $velocidad_actual = $velocidad-(($velocidad * ($alto/603)) - $velocidad);
 			  
 			  
   $('#uno').css('top', 0 - ($alto*$posicion_azar[0])+'px');
@@ -317,7 +318,7 @@ $caja.addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd 
 	$('#uno').css('position', 'relative');
 	$('#tres').css('position', 'relative');
  
-  $("#tablero-adivinar").clearQueue().stop().animate({top: $alto}, $velocidad, "linear", function() {
+  $("#tablero-adivinar").clearQueue().stop().animate({top: $alto}, $velocidad_actual, "linear", function() {
 	 if(!$pulsado)
 	  {
 		  $("#error").popup();
