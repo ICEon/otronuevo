@@ -6,7 +6,7 @@ var $actual;
 var $actualmin;
 var $actualmax;
 var $simboloCorrecto;
-var $pulsado=flase;
+var $pulsado=false;
 
 function conectar_base()
  {
