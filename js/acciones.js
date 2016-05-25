@@ -77,7 +77,6 @@ function colocar_adivinar ($min, $max){
 		   
         tx.executeSql("SELECT nombreElemento FROM elementos WHERE simbolo = '"+ $simboloCorrecto +"';", [], function(tx, res) {
 $('#elemento-actual').html('');			
-$('#elemento-actual').html(res.rows.item(0).nombreElemento);
 		   $('#uno div').html('');
 		 $('#dos div').html('');
 		 $('#tres div').html('');
@@ -107,6 +106,7 @@ $cadena = $adivinar[0];
 		 $('#uno div').html($adivinar[0]);
 		 $('#dos div').html($adivinar[1]);
 		 $('#tres div').html($adivinar[2]);
+$('#elemento-actual').html(res.rows.item(0).nombreElemento);
 
 	 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{
                 transition: 'pop'
