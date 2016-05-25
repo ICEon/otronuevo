@@ -93,7 +93,7 @@ $('#elemento-actual').html(res.rows.item(0).nombreElemento);
 $cadena = $adivinar[0];
 		for ($i=1; $i <3; $i++)
 			 {
-				$cadena += "," + $adibinar[$i];
+				$cadena += "," + $adivinar[$i];
 			 }
 			 alert ($cadena);
 	     switch ($simboloCorrecto)
