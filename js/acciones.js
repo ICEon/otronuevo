@@ -5,6 +5,8 @@ var $adivinar = [];
 var $actual;
 var $actualmin;
 var $actualmax;
+var $simboloCorrecto;
+
 function conectar_base()
  {
   db = window.sqlitePlugin.openDatabase({name: "quimica_b.db", createFromLocation: 1});
@@ -29,7 +31,7 @@ function shuffle_elements(array) {
 }
 
 function cargarNivel($min,$max)
- {
+ {		 
 	      db.transaction(function(tx) {
         tx.executeSql("SELECT simbolo FROM elementos WHERE idelemento BETWEEN " + $min + " AND " + $max +" ORDER BY numeroAtomico ASC;", [], function(tx, res) {
 			$arreglo_elementos = [];
@@ -50,7 +52,7 @@ function cargarNivel($min,$max)
 	// $('#dos div').html($arreglo_elementos[0]);
 
 function colocar_adivinar ($min, $max){
-	
+	$('.boton').removeClass('boton-correcto');
 	if ($actual == 0)
 	 {
 		//todo al origen reset puntajes  
@@ -69,17 +71,34 @@ function colocar_adivinar ($min, $max){
 	     $adivinar[2] = $arreglo_elementos[$tercero]; 
 		} while (($tercero == $segundo) || ($tercero == $actual));
 		
-		$cadena = $arreglo_elementos [0];
-		for ($i=1; $i <=($max-$min); $i++)
-			 {
-				$cadena += ","+$arreglo_elementos [$i];  
-			 }
-		
+		        		
+	$simboloCorrecto = $adivinar[0];
+	   db.transaction(function(tx) {
+		   
+        tx.executeSql("SELECT nombreElemento FROM elementos WHERE simbolo ="+ $adivinar[0] +";", [], function(tx, res) {
+$('#elemento-actual').html(res.rows.item(0).nombreElemento);
+        });
+      });
+				
 		$adivinar = shuffle_elements($adivinar);
 		$posicion_azar = shuffle_elements($posicion_azar);
+		
+		 switch ($simboloCorrecto)
+		  {
+			case $adivinar[0]:
+			 $('#botones-adivinar-uno').addClass('boton-correcto');
+			break;  
+			case $adivinar[1]:
+			 $('#botones-adivinar-dos').addClass('boton-correcto');
+			break;  
+			case $adivinar[2]:
+			 $('#botones-adivinar-tres').addClass('boton-correcto');
+			break;  
+		  }
 		 $('#uno div').html($adivinar[0]);
 		 $('#dos div').html($adivinar[1]);
 		 $('#tres div').html($adivinar[2]);
+
 	 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{
                 transition: 'pop'
 			   }); 
@@ -199,7 +218,10 @@ $caja.addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd 
 		  });
 		  
 		  $('.boton').on('click', function() {
-			  
+			  if ($(this).hasClass('boton-correcto'))
+			   {
+				alert ('correcto');   
+			   }
 			  $("#tablero-adivinar").stop();
 		  });
 		  
@@ -210,7 +232,6 @@ $caja.addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd 
 			  
 			  
   $('#uno').css('top', 0 - ($alto*$posicion_azar[0])+'px');
-
   $('#tres').css('top', 0 - ($alto*$posicion_azar[1])+'px');
   $('#dos').css('top', 0 - ($alto*$posicion_azar[2])+'px');
     $('#dos').css('position', 'relative');
