@@ -53,7 +53,6 @@ function cargarNivel($min,$max)
 	// $('#dos div').html($arreglo_elementos[0]);
 
 function colocar_adivinar ($min, $max){
-	$("#tablero-adivinar").css({top: "30px;"});
 	$pulsado = false;
 	$('.boton').removeClass('boton-correcto');
 	if ($actual == 0)
@@ -297,6 +296,7 @@ $(document).on("popupafterclose", "#error", function () {
  
 function revisar()
   {
+	  	$("#tablero-adivinar").css({top: "30px;"});
 	 if ($actual< $arreglo_elementos.length)
 	  {
 		$actual=$actual+1;
