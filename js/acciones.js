@@ -10,7 +10,7 @@ function cargarNivel($min,$max)
  {
 	      db.transaction(function(tx) {
         tx.executeSql("SELECT numeroAtomico FROM elementos WHERE idelemento BETWEEN " + $min + " AND " + $max +";", [], function(tx, res) {
-			for ($i=0; $i <$max; $i++)
+			for ($i=0; $i <($max-$min); $i++)
 			 {
 				$arreglo_elementos [$i] =  res.rows.item($i).numeroAtomico;
 			 }
@@ -24,7 +24,7 @@ function cargarNivel($min,$max)
 			   }); 
 			
 			
-        }, function error(err) {alert ("error en la consulta" + err)});
+        });
       });
  }
 
@@ -47,7 +47,6 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
 	
 	$('.boton-nivel').on('click' , function () {
 		$cual_nivel = $(this).attr('id');	
-		alert ($cual_nivel);
 		switch ($cual_nivel)
 	     {
 			//seleccion de los elementos con un arreglo de x a y segun el nivel
