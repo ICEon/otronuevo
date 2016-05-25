@@ -147,12 +147,11 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
 		$mostrarCual = $(this).html();
 			alert ($mostrarCual);
 			
-  		
-          $("#elementoMostrar").popup('open', {transition: "slide"});
+  		  
 		  
-			/*
+			
 			 db.transaction(function(tx) {
-        tx.executeSql("select * from elementos where simbolo = " + $mostrarCual + ";", [], function(tx, res) {
+        tx.executeSql("select * from elementos where simbolo = '" + $mostrarCual + "';", [], function(tx, res) {
 			$("#numeroAtomicoMostrar").html(res.rows.item(0).numeroAtomico);
 			$("#nombreMostrar").html(res.rows.item(0).nombreElemento);			
 			$("#simboloMostrar").html(res.rows.item(0).simbolo);			
@@ -164,13 +163,20 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
 			$("#estadoMostrar").html(res.rows.item(0).estado);			
 			$("#familiaMostrar").html(res.rows.item(0).familia);
 			$("#descripcionMostrar").html(res.rows.item(0).descripcion);	
+	   $(':mobile-pagecontainer').pagecontainer('change', '#elementoMostrar',{
+                transition: 'pop'
+			   });			
         });
-      });*/
+      });
+	  
+
 			
 	})
 	
 	$('#btn_cerrar_mostrar').on('tap', function(){
-   $("#elementoMostrar").popup('close', {transition: "flip"});	   
+  $(':mobile-pagecontainer').pagecontainer('change', '#tabla',{
+                transition: 'pop'
+			   }); 
 	
 });
 	
