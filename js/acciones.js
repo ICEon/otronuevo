@@ -80,16 +80,11 @@ $('#elemento-actual').html('');
 		   $('#uno div').html('');
 		 $('#dos div').html('');
 		 $('#tres div').html('');
-		alert ("Correcto " + $simboloCorrecto + "=" + $adivinar[0]);		 
+
 		$adivinar = shuffle_elements($adivinar);
 		$posicion_azar = shuffle_elements($posicion_azar);
 
-$cadena = $adivinar[0];
-		for ($i=1; $i <3; $i++)
-			 {
-				$cadena += "," + $adivinar[$i];
-			 }
-			 alert ($cadena);
+
 	     switch ($simboloCorrecto)
 		  {
 			case $adivinar[0]:
@@ -109,9 +104,9 @@ $cadena = $adivinar[0];
 $('#elemento-actual').html(res.rows.item(0).nombreElemento);
 
 	 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{transition: 'slide'}); 
-	 $("#juego").bind("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function(){ 
-	 	 $("#quien").popup("open",{transition: "flip"}); 
-		 });
+	 
+     $( "#juego" ).on( "pagecontainershow", function( event, ui ) { $("#quien").popup("open",{transition: "flip"});  } );
+	
 
 	
         });
