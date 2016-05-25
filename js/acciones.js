@@ -324,7 +324,8 @@ function revisar()
 		colocar_adivinar($actualmin,$actualmax);     
 	  }
 	  else
-	   {   $completado = 	($aciertos*100)/(($actualmax-$actualmin)+1).toFixed();
+	   {   $completado = 	(($aciertos*100)/(($actualmax-$actualmin)+1)).toFixed(1);
+
 		   $('#porcentaje').html($completado +"%");
 
 		   $('#encontrados-fin').html($aciertos);
