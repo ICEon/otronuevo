@@ -104,10 +104,8 @@ $('#elemento-actual').html('');
 $('#elemento-actual').html(res.rows.item(0).nombreElemento);
 
 	 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{transition: 'slide'}); 
-	 $( "#juego" ).pagecontainer({
-  show: function( event, ui ) {}
-});
-     $("#juego").on( "pagecontainershow", function( event, ui ) { $("#quien").popup("open",{transition: "flip"});  } );
+	$( "#juego" ).on( "pagecontainertransition", function( event, ui ) { 	$("#quien").popup("open",{transition: "flip"}); 
+} );
 	
 
 	
