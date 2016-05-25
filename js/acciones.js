@@ -16,12 +16,12 @@ function cargarNivel($min,$max)
 			 }
 			 
 			 $elementoEncontrar = Math.floor((Math.random() * $max) + $min);
-			 alert ($elementoencontrar);
+			 alert ($elementoEncontrar);
 			 
 			 $('#dos div').html($elementoEncontrar);
 			 $(':mobile-pagecontainer').pagecontainer('change', '#jugar',{
                 transition: 'pop'
-			   }, alert ("error en la consulta");); 
+			   }); 
 			
 			
         });
@@ -34,6 +34,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 
  function onDeviceReady() {
+	 
 	 audio = window.plugins.LowLatencyAudio;	
 audio.preloadFX('error', 'recursos/sonidos/error.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });	
 audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, function(msg){ alert( 'Error: ' + msg ); });	
