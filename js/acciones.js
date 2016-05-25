@@ -286,6 +286,12 @@ $caja.addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd 
   });
  }//animar caida
  
+ $('#btnfin').on('tap', function(){
+   $("#fin").popup('close', {transition: "slidefade"});	
+   
+	
+});
+ 
  $('#btn_otro_elemento').on('tap', function(){
    $("#acierto").popup('close', {transition: "slidefade"});	
    
@@ -319,7 +325,13 @@ function revisar()
 	  }
 	  else
 	   {
-		alert ("Fin del nivel");   
+		   $completado = 	($aciertos*100)/(($actualmax-$actualmin)+1);
+		   $('#porcentaje').html($completado +"%");
+
+		   $('#encontrados-fin').html($aciertos);
+		   $("#fin").popup();
+				navigator.notification.vibrate(500);
+				$("#fin").popup('open', {transition: "slide"});
 	   }
   }
  
