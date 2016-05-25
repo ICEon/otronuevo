@@ -104,11 +104,7 @@ $('#elemento-actual').html('');
 $('#elemento-actual').html(res.rows.item(0).nombreElemento);
 
 	 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{transition: 'none'}); 
-$("#quien").popup("open",{transition: "flip"}); 
-
-	
-
-	
+     $("#quien").popup("open",{transition: "flip"}); 	
         });
       });
 				
@@ -222,14 +218,14 @@ $caja.addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd 
 	 
 		  });
 		  
+		  $('#btncontinuar').on('tap', function (){             
+             $("#quien").popup("close",{transition: "flip"});
+			 $alto = $('#juego').height();
+			 animarCaida ($alto);
+		 });
 		  
-		  $('.exterior').on('click', function (){
-			$alto = $('#juego').height();
-			animarCaida ($alto);
-			  
-			  
-		  });
 		  
+		
 		  $('.boton').on('click', function() {
 			  if ($(this).hasClass('boton-correcto'))
 			   {
@@ -252,7 +248,7 @@ $caja.addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd 
 	$('#tres').css('position', 'relative');
  
   $("#tablero-adivinar").clearQueue().stop().animate({top: $alto}, $velocidad, "linear", function() {
-	 
+	 $("#tablero-adivinar").css ({top: "30px"});
   });
 
 
