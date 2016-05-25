@@ -42,7 +42,7 @@ function cargarNivel($min,$max)
  }
  
 	 
-	 $('#dos div').html($arreglo_elementos[0]);
+	// $('#dos div').html($arreglo_elementos[0]);
 
 function colocar_adivinar ($min, $max){
 	
@@ -50,8 +50,7 @@ function colocar_adivinar ($min, $max){
 	 {
 		//todo al origen reset puntajes  
 	 }
-	else
-	 {
+	
 	   $adivinar[0] = $arreglo_elementos[$actual];
 	   do 
 	    {
@@ -66,7 +65,7 @@ function colocar_adivinar ($min, $max){
 		} while (($tercero == $seguno) || ($tercero == $actual));
 		
 		alert ($adivinar [0] + " " + $adivinar [1] + " " + $adivinar [2]);
-	 }
+	
 			 
 	/*		 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{
                 transition: 'pop'
