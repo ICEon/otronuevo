@@ -61,7 +61,7 @@
 	 padding: 0;
 	 margin: 10px 0;
 }
-
+#nombreMostrar,
 #titulo {
 	margin: 2em;
 	text-align:center;
@@ -351,6 +351,8 @@ text-shadow: rgb(204, 204, 204) 0px 1px 0px, rgb(201, 201, 201) 0px 2px 0px, rgb
 	font-size: 180%;
 }
 
+
+
 .span-1-of-19-0 {
 		border: 2px solid transparent;
 		height: 3.44rem;
@@ -359,6 +361,8 @@ text-shadow: rgb(204, 204, 204) 0px 1px 0px, rgb(201, 201, 201) 0px 2px 0px, rgb
 	padding: 0;
 	border-radius: 5px;
 }
+
+
 
 .scrollable   {
 	position: absolute;
@@ -381,4 +385,8 @@ text-shadow: rgb(204, 204, 204) 0px 1px 0px, rgb(201, 201, 201) 0px 2px 0px, rgb
 #datos-elemento {
 	width: 75%;
 	margin:0 auto;
+}
+
+.renglon {
+	margin: 10px auto;
 }
