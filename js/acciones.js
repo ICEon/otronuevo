@@ -6,7 +6,7 @@ var $actual;
 var $actualmin;
 var $actualmax;
 var $simboloCorrecto;
-
+var $aciertos = 0;
 var $pulsado=false;
 
 function conectar_base()
@@ -34,6 +34,7 @@ function shuffle_elements(array) {
 
 function cargarNivel($min,$max)
  {		 
+  $('#totales').html(($max-$min) + 1);
 	      db.transaction(function(tx) {
         tx.executeSql("SELECT simbolo FROM elementos WHERE idelemento BETWEEN " + $min + " AND " + $max +" ORDER BY numeroAtomico ASC;", [], function(tx, res) {
 			$arreglo_elementos = [];
@@ -45,6 +46,7 @@ function cargarNivel($min,$max)
 		$actual=0;
 		$actualmin = $min;
 		$actualmax = $max;
+		$aciertos = 0;
 			colocar_adivinar($actualmin,$actualmax);
         });
       });
@@ -145,30 +147,31 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
 	
 	
 	$('.boton-nivel').on('click' , function () {
-		$cual_nivel = $(this).attr('id');	
+		$cual_nivel = $(this).attr('id');
+		$('#nivel').html($cual_nivel.substring(11));
 		switch ($cual_nivel)
 	     {
 			//seleccion de los elementos con un arreglo de x a y segun el nivel
 		case 'boton-nivel1':
 		 cargarNivel(1,7);
 		break;		
-		case 'boton-nivel2':
-		 cargarNivel(8,12);
+		case 'boton-nivel2':	  
+		 cargarNivel(8,13);
 		break;
 		case 'boton-nivel3':
-		cargarNivel(32,36);
+		cargarNivel(33,37);
 		break;
 		case 'boton-nivel4':
-		 cargarNivel(25,31);
+		 cargarNivel(26,32);
 		break;
 		case 'boton-nivel5':
-		 cargarNivel(13,18);
+		 cargarNivel(14,19);
 		break;
 		case 'boton-nivel6':
-		cargarNivel(19,24);
+		cargarNivel(20,25);
 		break;
 		case 'boton-nivel7':
-		cargarNivel(37,43);
+		cargarNivel(38,44);
 		break;
 		case 'boton-nivel8':
 		cargarNivel(85,98);
@@ -177,7 +180,7 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
 		cargarNivel(99,112);
 		break;
 		case 'boton-nivel10':
-		cargarNivel(44,84);
+		cargarNivel(45,84);
 		break;
 		 }
 	});
@@ -242,7 +245,9 @@ $caja.addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd 
 			  $("#tablero-adivinar").stop();
 			  if ($(this).hasClass('boton-correcto'))
 			   {
-				  aciertos = aciertos + 1;  
+				  $aciertos = $aciertos + 1;  
+				  $('#encontrados').html($aciertos);
+				  $('#aciertos').html($aciertos);
 				  $("#acierto").popup();
 				  audio.play('acierto');
 				  $("#acierto").popup('open', {transition: "slide"});
@@ -306,7 +311,7 @@ $(document).on("popupafterclose", "#error", function () {
 function revisar()
   {
 	  $("#tablero-adivinar").css({top: "30px"});
-	 if ($actual< $arreglo_elementos.length-1)
+	 if ($actual< $arreglo_elementos.length)
 	  {
 		$actual=$actual+1;
 		colocar_adivinar($actualmin,$actualmax);     
