@@ -19,7 +19,8 @@ function cargarNivel($min,$max)
 			 alert ($elementoEncontrar);
 			 
 			 $('#dos div').html($elementoEncontrar);
-			 $(':mobile-pagecontainer').pagecontainer('change', '#jugar',{
+			 
+			 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{
                 transition: 'pop'
 			   }); 
 			
