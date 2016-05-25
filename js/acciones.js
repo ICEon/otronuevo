@@ -32,7 +32,7 @@ function cargarNivel($min,$max)
 			 {
 				$arreglo_elementos [$i] =  res.rows.item($i).simbolo;
 			 }
-			 $shuffle_elements($arreglo_elementos);
+		shuffle_elements($arreglo_elementos);
 
 			 
 			 $('#dos div').html($arreglo_elementos[0]);
