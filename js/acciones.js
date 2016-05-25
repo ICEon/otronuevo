@@ -143,9 +143,33 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
  conectar_base();
 
     $('.span-1-of-19').on ('click', function(){
-		
+		mostrarCual = $(this).html();
+			
+   db.transaction(function(tx) {
+        tx.executeSql("select * from elementos where simbolo = " + mostrarCual + ";", [], function(tx, res) {
+			$("#numeroAtomicoMostrar").html(res.rows.item(0).numeroAtomico);
+			$("#nombreMostrar").html(res.rows.item(0).nombreElemento);			
+			$("#simboloMostrar").html(res.rows.item(0).simbolo);			
+			$("#masaMostrar").html(res.rows.item(0).masaAtomica);			
+			$("#grupoMostrar").html(res.rows.item(0).grupo);			
+			$("#periodoMostrar").html(res.rows.item(0).periodo);			
+			$("#electroMostrar").html(res.rows.item(0).electronegatividad);			
+			$("#configMostrar").html(res.rows.item(0).configuracionElectronica);			
+			$("#estadoMostrar").html(res.rows.item(0).estado);			
+			$("#familiaMostrar").html(res.rows.item(0).familia);
+			$("#descripcionMostrar").html(res.rows.item(0).descripcion);			
+          
+		  $("#elementoMostrar").popup('open', {transition: "slide"});
+			
+        });
+      });
+			
 	})
 	
+	$('#btn_cerrar_mostrar').on('tap', function(){
+   $("#elementoMostrar").popup('close', {transition: "flip"});	   
+	
+});
 	
 	$('.boton-nivel').on('click' , function () {
 		$cual_nivel = $(this).attr('id');
@@ -324,8 +348,8 @@ function revisar()
 		colocar_adivinar($actualmin,$actualmax);     
 	  }
 	  else
-	   {   $completado = 	(($aciertos*100)/(($actualmax-$actualmin)+1)).toFixed(1);
-
+	   {   $completado = 	($aciertos*100)/(($actualmax-$actualmin)+1);
+	      $completado = $completado.toFixed(1);
 		   $('#porcentaje').html($completado +"%");
 
 		   $('#encontrados-fin').html($aciertos);
