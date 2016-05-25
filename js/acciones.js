@@ -53,6 +53,8 @@ function cargarNivel($min,$max)
 	// $('#dos div').html($arreglo_elementos[0]);
 
 function colocar_adivinar ($min, $max){
+	$("#tablero-adivinar").css({top: "30px;"});
+	$pulsado = false;
 	$('.boton').removeClass('boton-correcto');
 	if ($actual == 0)
 	 {
@@ -243,7 +245,7 @@ $caja.addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd 
 				navigator.notification.vibrate(500);
 				$("#error").popup('open', {transition: "slide"});	
 			   }
-			   revisar();
+			   
 		  });
 		  
 		  function animarCaida($alto){
@@ -262,6 +264,9 @@ $caja.addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd 
   $("#tablero-adivinar").clearQueue().stop().animate({top: $alto}, $velocidad, "linear", function() {
 	 if(!$pulsado)
 	  {
+		  $("#error").popup();
+				navigator.notification.vibrate(500);
+				$("#error").popup('open', {transition: "slide"});
 		  	 revisar();
 	  }
 
@@ -269,31 +274,39 @@ $caja.addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd 
  }//animar caida
  
  $('#btn_otro_elemento').on('tap', function(){
-   $("#acierto").popup('close', {transition: "flip"});	
+   $("#acierto").popup('close', {transition: "slidefade"});	
    
 	
 });
 
 $('#btn_error_elemento').on('tap', function(){
-   $("#error").popup('close', {transition: "flip"});	
+   $("#error").popup('close', {transition: "slidefade"});	
    
 	
 });
 
 
 $(document).on("popupafterclose", "#acierto", function () {
-	nuevoElemento();
+	revisar();
 
 });
 
 $(document).on("popupafterclose", "#error", function () {
-	nuevoElemento();
+	revisar();
 
 });
  
 function revisar()
   {
-  
+	 if ($actual< $arreglo_elementos.length)
+	  {
+		$actual=$actual+1;
+		colocar_adivinar($actualmin,$actualmax);     
+	  }
+	  else
+	   {
+		alert ("Fin del nivel");   
+	   }
   }
  
  } //device ready
