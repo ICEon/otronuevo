@@ -34,6 +34,7 @@ function shuffle_elements(array) {
 
 function cargarNivel($min,$max)
  {		 
+ $('#aciertos').html(0);
   $('#totales').html(($max-$min) + 1);
 	      db.transaction(function(tx) {
         tx.executeSql("SELECT simbolo FROM elementos WHERE idelemento BETWEEN " + $min + " AND " + $max +" ORDER BY numeroAtomico ASC;", [], function(tx, res) {
@@ -311,7 +312,7 @@ $(document).on("popupafterclose", "#error", function () {
 function revisar()
   {
 	  $("#tablero-adivinar").css({top: "30px"});
-	 if ($actual< $arreglo_elementos.length)
+	 if ($actual < $arreglo_elementos.length-1)
 	  {
 		$actual=$actual+1;
 		colocar_adivinar($actualmin,$actualmax);     
