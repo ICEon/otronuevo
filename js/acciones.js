@@ -6,6 +6,7 @@ var $actual;
 var $actualmin;
 var $actualmax;
 var $simboloCorrecto;
+
 var $pulsado=false;
 
 function conectar_base()
@@ -74,10 +75,11 @@ function colocar_adivinar ($min, $max){
 		} while (($tercero == $segundo) || ($tercero == $actual));
 		
 		       $simboloCorrecto=""; 		
+			   $nombreCorrecto="";
 	$simboloCorrecto = $adivinar[0];
 	   db.transaction(function(tx) {
 		   
-        tx.executeSql("SELECT nombreElemento FROM elementos WHERE simbolo = '"+ $simboloCorrecto +"';", [], function(tx, res) {
+        tx.executeSql("SELECT nombreElemento, simbolo FROM elementos WHERE simbolo = '"+ $simboloCorrecto +"';", [], function(tx, res) {
 $('#elemento-actual').html('');			
 		   $('#uno div').html('');
 		 $('#dos div').html('');
@@ -103,9 +105,16 @@ $('#elemento-actual').html('');
 		 $('#uno div').html($adivinar[0]);
 		 $('#dos div').html($adivinar[1]);
 		 $('#tres div').html($adivinar[2]);
-$('#elemento-actual').html(res.rows.item(0).nombreElemento);
+		 
 
+$('#elemento-actual').html(res.rows.item(0).nombreElemento);
+     $('#elementoEncontrar').html(res.rows.item(0).nombreElemento);
+	 
+	 $('.nombre_elemento').html (res.rows.item(0).nombreElemento);
+	 $('.simbolo_elemento').html($simboloCorrecto);
+	 
 	 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{transition: 'none'}); 
+
      $("#quien").popup("open",{transition: "flip"}); 	
         });
       });
@@ -296,8 +305,8 @@ $(document).on("popupafterclose", "#error", function () {
  
 function revisar()
   {
-	  	$("#tablero-adivinar").css({top: "30px;"});
-	 if ($actual< $arreglo_elementos.length)
+	  $("#tablero-adivinar").css({top: "30px"});
+	 if ($actual< $arreglo_elementos.length-1)
 	  {
 		$actual=$actual+1;
 		colocar_adivinar($actualmin,$actualmax);     
