@@ -9,6 +9,8 @@ var $simboloCorrecto;
 var $aciertos = 0;
 var $pulsado=false;
 var $velocidad = 2200;
+var $cual_nivel="";
+
 
 function conectar_base()
  {
@@ -32,6 +34,8 @@ function shuffle_elements(array) {
 
   return array;
 }
+
+
 
 function cargarNivel($min,$max)
  {		 
@@ -365,7 +369,39 @@ function revisar()
 	   {   $completado = 	($aciertos*100)/(($actualmax-$actualmin)+1);
 	      $completado = $completado.toFixed(1);
 		   $('#porcentaje').html($completado +"%");
-
+		    switch ($cual_nivel.substring(11))
+			 {
+				 case 1:
+				  $('#mayor-uno').html($completado +"%");
+				 break;
+				 case 2:
+				  $('#mayor-dos').html($completado +"%");
+				 break;
+				 case 3:
+				  $('#mayor-tres').html($completado +"%");
+				 break;
+				 case 4:
+				  $('#mayor-cuatro').html($completado +"%");
+				 break;
+				 case 5:
+				  $('#mayor-cinco').html($completado +"%");
+				 break;
+				 case 6:
+				  $('#mayor-seis').html($completado +"%");
+				 break;
+				 case 7:
+				  $('#mayor-siete').html($completado +"%");
+				 break;
+				 case 8:
+				  $('#mayor-ocho').html($completado +"%");
+				 break;
+				 case 9:
+				  $('#mayor-nueve').html($completado +"%");
+				 break;
+				 case 10:
+				  $('#mayor-diez').html($completado +"%");
+				 break;
+			 }
 		   $('#encontrados-fin').html($aciertos);
 		   
 		   $(':mobile-pagecontainer').pagecontainer('change', '#niveles',{transition: 'none'});
@@ -378,5 +414,8 @@ function revisar()
 	   }
   }
  
+
+	  
+
  } //device ready
 }); //ready
