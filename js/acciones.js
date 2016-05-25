@@ -372,10 +372,10 @@ function revisar()
 		    switch ($cual_nivel.substring(11))
 			 {
 				 case '1':
-				  $('#mayor-uno').html($completado +"%");
+				  $('#mayor-uno').html($completado );
 				 break;
 				 case '2':
-				  $('#mayor-dos').html($completado +"%");
+				  $('#mayor-dos').html($completado );
 				 break;
 				 case '3':
 				  $('#mayor-tres').html($completado);
