@@ -30,6 +30,7 @@ function cargarNivel($min,$max)
  {
 	      db.transaction(function(tx) {
         tx.executeSql("SELECT simbolo FROM elementos WHERE idelemento BETWEEN " + $min + " AND " + $max +" ORDER BY numeroAtomico ASC;", [], function(tx, res) {
+			$arreglo_elementos = [];
 			for ($i=0; $i <=($max-$min); $i++)
 			 {
 				$arreglo_elementos [$i] =  res.rows.item($i).simbolo;
@@ -50,7 +51,7 @@ function colocar_adivinar ($min, $max){
 	 {
 		//todo al origen reset puntajes  
 	 }
-	
+	   $adivinar = [];
 	   $adivinar[0] = $arreglo_elementos[$actual];
 	   do 
 	    {
