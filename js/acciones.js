@@ -145,7 +145,25 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
     $('.span-1-of-19').on ('click', function(){
 		$mostrarCual = $(this).html();
 			alert ($mostrarCual);
-  
+			
+   db.transaction(function(tx) {
+        tx.executeSql("select * from elementos where simbolo = " + $mostrarCual + ";", [], function(tx, res) {
+			$("#numeroAtomicoMostrar").html(res.rows.item(0).numeroAtomico);
+			$("#nombreMostrar").html(res.rows.item(0).nombreElemento);			
+			$("#simboloMostrar").html(res.rows.item(0).simbolo);			
+			$("#masaMostrar").html(res.rows.item(0).masaAtomica);			
+			$("#grupoMostrar").html(res.rows.item(0).grupo);			
+			$("#periodoMostrar").html(res.rows.item(0).periodo);			
+			$("#electroMostrar").html(res.rows.item(0).electronegatividad);			
+			$("#configMostrar").html(res.rows.item(0).configuracionElectronica);			
+			$("#estadoMostrar").html(res.rows.item(0).estado);			
+			$("#familiaMostrar").html(res.rows.item(0).familia);
+			$("#descripcionMostrar").html(res.rows.item(0).descripcion);			
+          
+		  $("#elementoMostrar").popup('open', {transition: "slide"});
+			
+        });
+      });
 			
 	})
 	
