@@ -108,9 +108,9 @@ $cadena = $adivinar[0];
 		 $('#tres div').html($adivinar[2]);
 $('#elemento-actual').html(res.rows.item(0).nombreElemento);
 
-	 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{
-                transition: 'pop'
-			   }); 
+	 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{transition: 'pop'}); 
+	 
+	 
 	
         });
       });
@@ -120,6 +120,10 @@ $('#elemento-actual').html(res.rows.item(0).nombreElemento);
 		  
 
 }
+
+   $('#juego').on('load', function (){
+	alert (  "hola");
+   });
 
 
 $(document).ready(function(e) {
@@ -180,8 +184,7 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
      switch ($(this).val())
 	  {
 		case '1':
-		 $('#velocidad').html('Lento');
-		 
+		 $('#velocidad').html('Lento');		 
 		break;
 		case '2':
 		 $('#velocidad').html('Normal');
@@ -200,7 +203,7 @@ $caja.addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd 
 	     switch ($accion)
 		  {
 			 case 'jugar':
-			  $(':mobile-pagecontainer').pagecontainer('change', '#nivel',{
+			  $(':mobile-pagecontainer').pagecontainer('change', '#niveles',{
                 transition: 'pop'
 			   }); 
 			 break;
