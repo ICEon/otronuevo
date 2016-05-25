@@ -110,7 +110,7 @@ $('#elemento-actual').html(res.rows.item(0).nombreElemento);
 
 	 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{transition: 'pop'}); 
 	 
-	 
+	 $("#quien").popup("open",{transition: "flip"});
 	
         });
       });
@@ -121,9 +121,6 @@ $('#elemento-actual').html(res.rows.item(0).nombreElemento);
 
 }
 
-   $('#juego').on('load', function (){
-	alert (  "hola");
-   });
 
 
 $(document).ready(function(e) {

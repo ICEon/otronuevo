@@ -66,7 +66,7 @@
 
  
  <!-- Nivel -->
-  <div data-role="page" id="nivel">   
+  <div data-role="page" id="niveles">   
     <div data-role="header" data-position="fixed">
      <div id="titulo-nivel">Selecciona un nivel</div>
     </div>
@@ -138,6 +138,31 @@
  <!-- Juego -->
   <div data-role="page" id="juego">   
     <div data-role="main" class="ui-content" id="area-juego">
+    
+      <div data-role="popup" id="quien" data-overlay-theme="a" data-theme="b" data-dismissible="false">
+        <div data-role="header" data-theme="b">
+          <div style="background-color:#FFF; color:#000;">
+            <h1 style="margin:1px 20px 1px;">Selecciona el simbolo del:</h1>
+          </div>
+        </div> 
+        
+        <div data-role="main" class="ui-content">
+          <div align="center">
+            <p id="elementoEncontrar">&nbsp;</p>
+            <div align="center">            
+              <a href="#" class="ui-btn ui-btn-corner-all ui-shadow" id="btncontinuar" style="display:inline-block"><i class="ion-ionic icono-mediano" ></i>Aceptar</a>
+            </div>       
+          </div>
+        </div>
+        
+        <div data-role="footer" data-theme="a">
+          <div align="center">
+            Elementos encontrados: <span id='encontrados'>0</span>
+          </div>
+        </div>
+      </div> <!-- pop quien -->
+ 
+ 
       <div id="tablero">
          <div id="tablero-datos">
            <div>Nivel <span id="nivel">1</span></div>
