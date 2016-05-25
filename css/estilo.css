@@ -186,7 +186,7 @@ margin: 1em auto 0.5em;
 	position: absolute;
 	height: 10vh;
 	top: 30px;
-	z-index:6;
+	z-index:3;
 	width: 100%;
 	text-align: center;	
 }
