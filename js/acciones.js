@@ -5,19 +5,37 @@ function conectar_base()
  {
   db = window.sqlitePlugin.openDatabase({name: "quimica_b.db", createFromLocation: 1});
  }
+ 
+function shuffle_elements(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
 
 function cargarNivel($min,$max)
  {
 	      db.transaction(function(tx) {
-        tx.executeSql("SELECT numeroAtomico FROM elementos WHERE idelemento BETWEEN " + $min + " AND " + $max +";", [], function(tx, res) {
+        tx.executeSql("SELECT simbolo FROM elementos WHERE idelemento BETWEEN " + $min + " AND " + $max +";", [], function(tx, res) {
 			for ($i=0; $i <($max-$min); $i++)
 			 {
-				$arreglo_elementos [$i] =  res.rows.item($i).numeroAtomico;
+				$arreglo_elementos [$i] =  res.rows.item($i).simbolo;
 			 }
+			 $shuffle_elements($arreglo_elementos);
+
 			 
-			 $elementoEncontrar =  Math.round(Math.random()*($max-$min)+parseInt($min));
-			 
-			 $('#dos div').html($elementoEncontrar);
+			 $('#dos div').html($arreglo_elementos[0]);
 			 
 			 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{
                 transition: 'pop'
