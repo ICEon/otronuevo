@@ -1,5 +1,7 @@
 // JavaScript Document
 var $arreglo_elementos = [];
+var $adivinar = [];
+var $actual;
 
 function conectar_base()
  {
@@ -32,19 +34,46 @@ function cargarNivel($min,$max)
 			 {
 				$arreglo_elementos [$i] =  res.rows.item($i).simbolo;
 			 }
-		shuffle_elements($arreglo_elementos);
-
-			 
-			 $('#dos div').html($arreglo_elementos[0]);
-			 
-			 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{
-                transition: 'pop'
-			   }); 
-			
-			
+		shuffle_elements($arreglo_elementos);			
+		$actual=0;
+			colocar_adivinar($min,$max);
         });
       });
  }
+ 
+	 
+	 $('#dos div').html($arreglo_elementos[0]);
+
+function colocar_adivinar ($min, $max){
+	
+	if ($actual == 0)
+	 {
+		//todo al origen reset puntajes  
+	 }
+	else
+	 {
+	   $adivinar[0] = $arreglo_elementos[$actual];
+	   do 
+	    {
+		 $segundo = Math.round(Math.random()*($max-$min));
+	     $adivinar[1] = $arreglo_elementos[$segundo]; 
+		} while ($seguno == $actual);
+	
+	   do 
+	    {
+		 $tercero = Math.round(Math.random()*($max-$min));
+	     $adivinar[2] = $arreglo_elementos[$tercero]; 
+		} while (($tercero == $seguno) || ($tercero == $actual));
+		
+		alert ($adivinar [0] + " " + $adivinar [1] + " " + $adivinar [2]);
+	 }
+			 
+	/*		 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{
+                transition: 'pop'
+			   }); 
+	*/
+}
+
 
 $(document).ready(function(e) {
 
