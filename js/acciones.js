@@ -80,10 +80,23 @@ $('#elemento-actual').html(res.rows.item(0).nombreElemento);
         });
       });
 				
+
+	
+		  
+		   $('#uno div').html('');
+		 $('#dos div').html('');
+		 $('#tres div').html('');
+		alert ("Correcto " + $simboloCorrecto + "=" + $adivinar[0]);		 
 		$adivinar = shuffle_elements($adivinar);
 		$posicion_azar = shuffle_elements($posicion_azar);
-		
-		 switch ($simboloCorrecto)
+
+$cadena = $adivinar[0];
+		for ($i=1; $i <3; $i++)
+			 {
+				$cadena += "," + $adibinar[$i];
+			 }
+			 alert ($cadena);
+	     switch ($simboloCorrecto)
 		  {
 			case $adivinar[0]:
 			 $('#botones-adivinar-uno').addClass('boton-correcto');
@@ -95,6 +108,7 @@ $('#elemento-actual').html(res.rows.item(0).nombreElemento);
 			 $('#botones-adivinar-tres').addClass('boton-correcto');
 			break;  
 		  }
+
 		 $('#uno div').html($adivinar[0]);
 		 $('#dos div').html($adivinar[1]);
 		 $('#tres div').html($adivinar[2]);
