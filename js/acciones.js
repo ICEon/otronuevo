@@ -145,7 +145,9 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
 
     $('.span-1-of-19').on ('click', function(){
 		$mostrarCual = $(this).html();
-			alert ($mostrarCual);
+		$color = $(this).css('background-color');
+		
+			alert ($color);
 			
   		  
 		  
@@ -162,7 +164,8 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
 			$("#configMostrar").html(res.rows.item(0).configuracionElectronica);			
 			$("#estadoMostrar").html(res.rows.item(0).estado);			
 			$("#familiaMostrar").html(res.rows.item(0).familia);
-			$("#descripcionMostrar").html(res.rows.item(0).descripcion);	
+			$("#descripcionMostrar").html(res.rows.item(0).descripcion);
+				$("#descripcionMostrar").css('text-align', 'justify');
 	   $(':mobile-pagecontainer').pagecontainer('change', '#elementoMostrar',{
                 transition: 'pop'
 			   });			
