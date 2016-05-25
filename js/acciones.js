@@ -266,8 +266,7 @@ $caja.addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd 
 	  {
 		  $("#error").popup();
 				navigator.notification.vibrate(500);
-				$("#error").popup('open', {transition: "slide"});
-		  	 revisar();
+				$("#error").popup('open', {transition: "slide"});		  
 	  }
 
   });
