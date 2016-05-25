@@ -268,22 +268,32 @@ $caja.addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd 
   });
  }//animar caida
  
+ $('#btn_otro_elemento').on('tap', function(){
+   $("#acierto").popup('close', {transition: "flip"});	
+   
+	
+});
+
+$('#btn_error_elemento').on('tap', function(){
+   $("#error").popup('close', {transition: "flip"});	
+   
+	
+});
+
+
+$(document).on("popupafterclose", "#acierto", function () {
+	nuevoElemento();
+
+});
+
+$(document).on("popupafterclose", "#error", function () {
+	nuevoElemento();
+
+});
+ 
 function revisar()
   {
-   if (bandera==0)
-    {	  
-	  $('.simbolo_elemento').html(simboloCorrecto);
-	  $('.nombre_elemento').html($("#elementoActual").html());
-	if (pulsado!="")
-	 {
-	 
-	 }
-	 else
-	  {
-      
-	  }
-	 	bandera=1; 
-	}
+  
   }
  
  } //device ready
