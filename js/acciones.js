@@ -147,7 +147,11 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
 		$mostrarCual = $(this).html();
 			alert ($mostrarCual);
 			
-   db.transaction(function(tx) {
+  		
+          $("#elementoMostrar").popup('open', {transition: "slide"});
+		  
+			/*
+			 db.transaction(function(tx) {
         tx.executeSql("select * from elementos where simbolo = " + $mostrarCual + ";", [], function(tx, res) {
 			$("#numeroAtomicoMostrar").html(res.rows.item(0).numeroAtomico);
 			$("#nombreMostrar").html(res.rows.item(0).nombreElemento);			
@@ -159,12 +163,9 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
 			$("#configMostrar").html(res.rows.item(0).configuracionElectronica);			
 			$("#estadoMostrar").html(res.rows.item(0).estado);			
 			$("#familiaMostrar").html(res.rows.item(0).familia);
-			$("#descripcionMostrar").html(res.rows.item(0).descripcion);			
-          
-		  $("#elementoMostrar").popup('open', {transition: "slide"});
-			
+			$("#descripcionMostrar").html(res.rows.item(0).descripcion);	
         });
-      });
+      });*/
 			
 	})
 	
@@ -216,7 +217,7 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
 	  {
 		case '1':
 		 $('#velocidad').html('Lento');
-		 $velocidad = 3400;		  
+		 $velocidad = 3000;		  
 		break;
 		case '2':
 		 $('#velocidad').html('Normal');
