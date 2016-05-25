@@ -1,8 +1,10 @@
 // JavaScript Document
 var $arreglo_elementos = [];
+var $posicion_azar = [.01,.03,.05];
 var $adivinar = [];
 var $actual;
-
+var $actualmin;
+var $actualmax;
 function conectar_base()
  {
   db = window.sqlitePlugin.openDatabase({name: "quimica_b.db", createFromLocation: 1});
@@ -37,7 +39,9 @@ function cargarNivel($min,$max)
 			 }
 		$arreglo_elementos = shuffle_elements($arreglo_elementos);			
 		$actual=0;
-			colocar_adivinar($min,$max);
+		$actualmin = $min;
+		$actualmax = $max;
+			colocar_adivinar($actualmin,$actualmax);
         });
       });
  }
@@ -71,14 +75,15 @@ function colocar_adivinar ($min, $max){
 				$cadena += ","+$arreglo_elementos [$i];  
 			 }
 		
-		
-		alert ($cadena +" >"+$adivinar [0] + " ->" + $segundo + "<- "+$adivinar [1] + " ->" + $tercero +"<- "+ $adivinar [2]+"<");
-	
-			 
-	/*		 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{
+		$adivinar = shuffle_elements($adivinar);
+		$posicion_azar = shuffle_elements($posicion_azar);
+		 $('#uno div').html($adivinar[0]);
+		 $('#dos div').html($adivinar[1]);
+		 $('#tres div').html($adivinar[2]);
+	 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{
                 transition: 'pop'
 			   }); 
-	*/
+	
 }
 
 
@@ -203,10 +208,11 @@ $caja.addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd 
 			 			  $velocidad= 2200;
 			  $velocidad = $velocidad-(($velocidad * ($alto/603)) - $velocidad);
 			  
-  $('#uno').css('top', 0 - ($alto*.03)+'px');
+			  
+  $('#uno').css('top', 0 - ($alto*$posicion_azar[0])+'px');
 
-  $('#tres').css('top', 0 - ($alto*.05)+'px');
-  $('#dos').css('top', 0 - ($alto*.01)+'px');
+  $('#tres').css('top', 0 - ($alto*$posicion_azar[1])+'px');
+  $('#dos').css('top', 0 - ($alto*$posicion_azar[2])+'px');
     $('#dos').css('position', 'relative');
 	$('#uno').css('position', 'relative');
 	$('#tres').css('position', 'relative');
