@@ -8,6 +8,7 @@ var $actualmax;
 var $simboloCorrecto;
 var $aciertos = 0;
 var $pulsado=false;
+var $velocidad = 2200;
 
 function conectar_base()
  {
@@ -214,13 +215,16 @@ audio.preloadFX('acierto', 'recursos/sonidos/acierto.mp3', function(msg){}, func
      switch ($(this).val())
 	  {
 		case '1':
-		 $('#velocidad').html('Lento');		 
+		 $('#velocidad').html('Lento');
+		 $velocidad = 3400;		  
 		break;
 		case '2':
 		 $('#velocidad').html('Normal');
+		 $velocidad = 2200;
 		break;
 		case '3':
 		 $('#velocidad').html('Rapido');
+		 $velocidad = 1750;
 		break;  
 	  }
 });
@@ -289,7 +293,6 @@ $caja.addClass('animated fadeOutRight').one('webkitAnimationEnd mozAnimationEnd 
 		  
 		  function animarCaida($alto){
 			 $alto = $alto - ($alto*.1);
-			 			  $velocidad= 2200;
 			  $velocidad = $velocidad-(($velocidad * ($alto/603)) - $velocidad);
 			  
 			  
