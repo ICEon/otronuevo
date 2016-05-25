@@ -103,9 +103,9 @@ $('#elemento-actual').html('');
 		 $('#tres div').html($adivinar[2]);
 $('#elemento-actual').html(res.rows.item(0).nombreElemento);
 
-	 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{transition: 'slide'}); 
-	$( "#juego" ).on( "pagecontainertransition", function( event, ui ) { 	$("#quien").popup("open",{transition: "flip"}); 
-} );
+	 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{transition: 'none'}); 
+$("#quien").popup("open",{transition: "flip"}); 
+
 	
 
 	
