@@ -24,8 +24,8 @@ function cargarNivel($min,$max)
 			   }); 
 			
 			
-        });
-      }, alert("Error en la consulta"));
+        }, function error(err) {alert ("error en la consulta" + err)});
+      });
  }
 
 $(document).ready(function(e) {
