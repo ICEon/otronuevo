@@ -64,7 +64,7 @@ function colocar_adivinar ($min, $max){
 	     $adivinar[2] = $arreglo_elementos[$tercero]; 
 		} while (($tercero == $segundo) || ($tercero == $actual));
 		
-		alert ($adivinar [0] + " " + $adivinar [1] + " " + $adivinar [2]);
+		alert ($adivinar [0] + " ->" + $segundo + "<- "+$adivinar [1] + " ->" + $tercero +"<- "+ $adivinar [2]);
 	
 			 
 	/*		 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{
