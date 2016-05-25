@@ -71,18 +71,13 @@ function colocar_adivinar ($min, $max){
 	     $adivinar[2] = $arreglo_elementos[$tercero]; 
 		} while (($tercero == $segundo) || ($tercero == $actual));
 		
-		        		
+		       $simboloCorrecto=""; 		
 	$simboloCorrecto = $adivinar[0];
 	   db.transaction(function(tx) {
 		   
-        tx.executeSql("SELECT nombreElemento FROM elementos WHERE simbolo = '"+ $adivinar[0] +"';", [], function(tx, res) {
+        tx.executeSql("SELECT nombreElemento FROM elementos WHERE simbolo = '"+ $simboloCorrecto +"';", [], function(tx, res) {
+$('#elemento-actual').html('');			
 $('#elemento-actual').html(res.rows.item(0).nombreElemento);
-        });
-      });
-				
-
-	
-		  
 		   $('#uno div').html('');
 		 $('#dos div').html('');
 		 $('#tres div').html('');
@@ -117,6 +112,13 @@ $cadena = $adivinar[0];
                 transition: 'pop'
 			   }); 
 	
+        });
+      });
+				
+
+	
+		  
+
 }
 
 
