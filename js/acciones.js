@@ -64,7 +64,14 @@ function colocar_adivinar ($min, $max){
 	     $adivinar[2] = $arreglo_elementos[$tercero]; 
 		} while (($tercero == $segundo) || ($tercero == $actual));
 		
-		alert ($adivinar [0] + " ->" + $segundo + "<- "+$adivinar [1] + " ->" + $tercero +"<- "+ $adivinar [2]);
+		$cadena = $arreglo_elementos [0];
+		for ($i=1; $i <=($max-$min); $i++)
+			 {
+				$cadena += ","+$arreglo_elementos [$i];  
+			 }
+		
+		
+		alert ($cadena +" >"+$adivinar [0] + " ->" + $segundo + "<- "+$adivinar [1] + " ->" + $tercero +"<- "+ $adivinar [2]+"<");
 	
 			 
 	/*		 $(':mobile-pagecontainer').pagecontainer('change', '#juego',{
